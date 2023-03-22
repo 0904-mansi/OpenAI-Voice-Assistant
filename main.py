@@ -51,12 +51,13 @@ while True:
         presence_penalty=0 # increasing the model's likelihood to talk about new topics.
     )
 
+    #here we are spliting the responses
     response_str = response["choices"][0]["text"].replace("\n", "")
     response_str =response_str.split(
         user_name + ":" ,1)[0].split(bot_name+ ":",1)[0]
 
     conversation+= response_str +"\n"
-    print(response_str)
-
+   
     engine.say(response_str)
+    print(response_str)
     engine.runAndWait()
