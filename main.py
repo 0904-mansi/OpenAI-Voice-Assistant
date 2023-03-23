@@ -52,15 +52,14 @@ while True:
     )
 
     #taking a response from a chatbot and cleans it up by removing any new line characters ("\n") 
-    #and filtering out any part of the response that comes after the chatbot's or user's name.
     response_str = response["choices"][0]["text"].replace("\n", "")
     # The [0] index is used to retrieve only the first part of the split text, 
     # which is the part of the response that comes before the user's or chatbot's name.
-    response_str =response_str.split(
-        user_name + ":" ,1)[0].split(bot_name+ ":",1)[0]
+    response_str =response_str.split(user_name + ":" ,1)[0].split(bot_name+ ":",1)[0]
 
+    # The 1 in the split function tells Python to only split the string once, so we only keep the first part of the split.
     conversation+= response_str +"\n"
-    #print(conversation)
+    # print(conversation)
    
     engine.say(response_str)
     print(response_str)
