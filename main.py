@@ -24,7 +24,7 @@ while True:
     with mic as source:
         print("\n Listening...")
         # This function makes the necessary changes to the settings that allow the speech to be heard in a slightly noisy environment.
-        r.adjust_for_ambient_noise(source, duration=0.2)
+        r.adjust_for_ambient_noise(source)
         # listening 
         audio = r.listen(source)
     print("no longer listening")
